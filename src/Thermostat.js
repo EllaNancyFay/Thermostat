@@ -3,3 +3,6 @@ function Thermostat(){
 	this.isPowerSavingModeOn = true
 };
 
+Thermostat.prototype.increaseTemperatureBy = function(degrees) {
+	this.temperature += degrees
+};
