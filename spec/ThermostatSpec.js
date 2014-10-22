@@ -27,5 +27,9 @@ describe('Thermostat', function() {
 			thermostat.decreaseTemperatureBy(5)
 			expect(thermostat.temperature).toEqual(15)
 		});
+
+		it('cannot go below 10 degrees', function() {
+			expect(function(){thermostat.decreaseTemperatureBy(15)}).toThrow(new Error('Do you wanna freeze fool?!'))
+		});
 	});
 });
