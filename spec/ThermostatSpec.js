@@ -47,4 +47,17 @@ describe('Thermostat', function() {
 			expect(thermostat.temperature).toEqual(10)
 		});
 	});
+
+	describe('features include', function() {
+
+		it('power saving mode which can be turned off', function() {
+			thermostat.turnOffPowerSaving()
+			expect(thermostat.isPowerSavingModeOn).toBe(false)
+		});
+
+		it('power saving mode which can be turned on', function() {
+			thermostat.turnOnPowerSaving()
+			expect(thermostat.isPowerSavingModeOn).toBe(true)
+		});
+	});
 });
