@@ -80,7 +80,7 @@ describe('Thermostat', function() {
 				expect(thermostat.maximumTemp).toEqual(32)
 			});
 
-			it(' when on should always have a max temp of 25 degrees', function() {
+			it('when on should always have a max temp of 25 degrees', function() {
 				thermostat.turnOffPowerSaving()
 				thermostat.turnOnPowerSaving()
 				expect(thermostat.maximumTemp).toEqual(25)
@@ -95,5 +95,25 @@ describe('Thermostat', function() {
 				expect(thermostat.temperature).toEqual(20)
 			});
 		});
+
+		describe('colour coded display', function() {
+
+			it('that is green when temp is < 18 degrees', function() {
+				thermostat.decreaseTemperatureBy(5);
+				expect(thermostat.displayColour).toEqual('green');
+			});
+ 			
+ 			it('that is yellow when temp is between 18 - 25 degrees', function() {
+				expect(thermostat.displayColour).toEqual('yellow');
+			});
+
+			it('that is red when temp is over 25 degrees', function() {
+				thermostat.turnOffPowerSaving();
+				thermostat.increaseTemperatureBy(6);
+				expect(thermostat.displayColour).toEqual('red');
+			});
+
+		});
+
 	});
 });
