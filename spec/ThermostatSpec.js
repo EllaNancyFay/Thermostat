@@ -22,5 +22,10 @@ describe('Thermostat', function() {
 			thermostat.increaseTemperatureBy(5)
 			expect(thermostat.temperature).toEqual(25)
 		});
+
+		it('can be decreased', function() {
+			thermostat.decreaseTemperatureBy(5)
+			expect(thermostat.temperature).toEqual(15)
+		});
 	});
 });
