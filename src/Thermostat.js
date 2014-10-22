@@ -1,6 +1,7 @@
 function Thermostat(){
 	this.temperature = 20
 	this.isPowerSavingModeOn = true
+	this.maximumTemp = 25
 };
 
 Thermostat.prototype.increaseTemperatureBy = function(degrees) {
@@ -25,6 +26,7 @@ Thermostat.prototype.decreaseTemperature = function() {
 
 Thermostat.prototype.turnOffPowerSaving = function() {
 	this.isPowerSavingModeOn = false
+	this.maximumTemp = 32
 };
 
 Thermostat.prototype.turnOnPowerSaving = function() {
