@@ -38,11 +38,20 @@ describe('Thermostat', function() {
 			expect(thermostat.temperature).toEqual(15)
 		});
 
-		xit('cannot go below 10 degrees', function() {
-			expect(function(){thermostat.decreaseTemperatureBy(15)}).toThrow(new Error('Do you wanna freeze fool?!'))
+		it('cannot go below 10 degrees', function() {
+			expect(function(){thermostat.decreaseTemperatureBy(15)}).toThrow(new Error('You cannot set the temp below 10'))
 		});
 
-		it('sets to 10 degrees if user trys to set the temperature to below that', function() {
+		it('cannot go above power saving mode maximum temp', function() {
+			expect(function(){thermostat.increaseTemperatureBy(6)}).toThrow(new Error('You cannot go above the maximum temperature'))
+		});
+
+		it('cannot go above non power saving mode maximum temp', function() {
+			thermostat.turnOffPowerSaving()
+			expect(function(){thermostat.increaseTemperatureBy(13)}).toThrow(new Error('You cannot go above the maximum temperature'))
+		});
+
+		xit('sets to 10 degrees if user trys to set the temperature to below that', function() {
 			thermostat.decreaseTemperatureBy(15);
 			expect(thermostat.temperature).toEqual(10)
 		});
@@ -69,6 +78,12 @@ describe('Thermostat', function() {
 		it('when off the max temp is 32 degrees', function() {
 			thermostat.turnOffPowerSaving()
 			expect(thermostat.maximumTemp).toEqual(32)
+		});
+
+		it(' when on should always have a max temp of 25 degrees', function() {
+			thermostat.turnOffPowerSaving()
+			thermostat.turnOnPowerSaving()
+			expect(thermostat.maximumTemp).toEqual(25)
 		});
 
 		});
