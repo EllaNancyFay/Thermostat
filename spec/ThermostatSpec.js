@@ -18,9 +18,19 @@ describe('Thermostat', function() {
 
 	describe('temperature', function(){
 
+		it('can be increased by 1 degree', function() {
+			thermostat.increaseTemperature()
+			expect(thermostat.temperature).toEqual(21)
+		});
+
 		it('can be increased', function() {
 			thermostat.increaseTemperatureBy(5)
 			expect(thermostat.temperature).toEqual(25)
+		});
+
+		it('can be decreased by 1 degree', function() {
+			thermostat.decreaseTemperature()
+			expect(thermostat.temperature).toEqual(19)
 		});
 
 		it('can be decreased', function() {
@@ -28,8 +38,13 @@ describe('Thermostat', function() {
 			expect(thermostat.temperature).toEqual(15)
 		});
 
-		it('cannot go below 10 degrees', function() {
+		xit('cannot go below 10 degrees', function() {
 			expect(function(){thermostat.decreaseTemperatureBy(15)}).toThrow(new Error('Do you wanna freeze fool?!'))
+		});
+
+		it('sets to 10 degrees if user trys to set the temperature to below that', function() {
+			thermostat.decreaseTemperatureBy(15);
+			expect(thermostat.temperature).toEqual(10)
 		});
 	});
 });
