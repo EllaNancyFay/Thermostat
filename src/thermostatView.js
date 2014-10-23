@@ -16,5 +16,13 @@ $(document).ready(function() {
 		thermostat.resetTemperature()
 		$(".temperature h1").text(thermostat.temperature);
 	});
+
+	$(".powerSaveOn").on('click', function() {
+		thermostat.turnOnPowerSaving()
+	});
+
+	$(".powerSaveOff").on('click', function() {
+		thermostat.turnOffPowerSaving()
+	});
 });
 

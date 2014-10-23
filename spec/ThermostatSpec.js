@@ -48,9 +48,10 @@ describe('Thermostat', function() {
 			expect(thermostat.temperature).toEqual(25)
 		});
 
-		xit('cannot go above non power saving mode maximum temp', function() {
+		it('cannot go above non power saving mode maximum temp', function() {
 			thermostat.turnOffPowerSaving()
-			expect(function(){thermostat.increaseTemperatureBy(13)}).toThrow(new Error('You cannot go above the maximum temperature'))
+			thermostat.increaseTemperatureBy(15);
+			expect(thermostat.temperature).toEqual(32)
 		});
 
 	});
@@ -82,6 +83,13 @@ describe('Thermostat', function() {
 				thermostat.turnOffPowerSaving()
 				thermostat.turnOnPowerSaving()
 				expect(thermostat.maximumTemp).toEqual(25)
+			});
+
+			it("if turned when the temp is already over 25, the max temp should be reset", function(){
+				thermostat.turnOffPowerSaving()
+				thermostat.increaseTemperatureBy(8)
+				thermostat.turnOnPowerSaving()
+				expect(thermostat.temperature).toEqual(25)
 			});
 
 		});
