@@ -39,22 +39,20 @@ describe('Thermostat', function() {
 		});
 
 		it('cannot go below 10 degrees', function() {
-			expect(function(){thermostat.decreaseTemperatureBy(15)}).toThrow(new Error('You cannot set the temp below 10'))
+			thermostat.decreaseTemperatureBy(15);
+			expect(thermostat.temperature).toEqual(10)
 		});
 
 		it('cannot go above power saving mode maximum temp', function() {
-			expect(function(){thermostat.increaseTemperatureBy(6)}).toThrow(new Error('You cannot go above the maximum temperature'))
+			thermostat.increaseTemperatureBy(6);
+			expect(thermostat.temperature).toEqual(25)
 		});
 
-		it('cannot go above non power saving mode maximum temp', function() {
+		xit('cannot go above non power saving mode maximum temp', function() {
 			thermostat.turnOffPowerSaving()
 			expect(function(){thermostat.increaseTemperatureBy(13)}).toThrow(new Error('You cannot go above the maximum temperature'))
 		});
 
-		xit('sets to 10 degrees if user trys to set the temperature to below that', function() {
-			thermostat.decreaseTemperatureBy(15);
-			expect(thermostat.temperature).toEqual(10)
-		});
 	});
 
 	describe('features include', function() {
@@ -100,16 +98,19 @@ describe('Thermostat', function() {
 
 			it('that is green when temp is < 18 degrees', function() {
 				thermostat.decreaseTemperatureBy(5);
+				thermostat.setDisplayColour();
 				expect(thermostat.displayColour).toEqual('green');
 			});
  			
  			it('that is yellow when temp is between 18 - 25 degrees', function() {
+				thermostat.setDisplayColour();
 				expect(thermostat.displayColour).toEqual('yellow');
 			});
 
 			it('that is red when temp is over 25 degrees', function() {
 				thermostat.turnOffPowerSaving();
 				thermostat.increaseTemperatureBy(6);
+				thermostat.setDisplayColour();
 				expect(thermostat.displayColour).toEqual('red');
 			});
 

@@ -2,30 +2,27 @@ function Thermostat(){
 	this.temperature = 20
 	this.isPowerSavingModeOn = true
 	this.maximumTemp = 25
+	this.minimumTemp = 10
 	this.displayColour = "yellow"
 };
 
 Thermostat.prototype.increaseTemperatureBy = function(degrees) {
-	this.temperature += degrees
-	this.setDisplayColour();
-	if (this.temperature > this.maximumTemp)
-	throw new Error('You cannot go above the maximum temperature')
+	if (this.temperature + degrees > this.maximumTemp) this.temperature = this.maximumTemp
+	else this.temperature += degrees;
 };
 
 Thermostat.prototype.decreaseTemperatureBy = function(degrees) {
-	this.temperature -= degrees;
-	this.setDisplayColour();
-	if (this.temperature < 10) 
-	throw new Error('You cannot set the temp below 10')
+	if (this.temperature - degrees < this.minimumTemp) this.temperature = this.minimumTemp
+	else this.temperature -= degrees;
 };
 
 
 Thermostat.prototype.increaseTemperature = function() {
-	this.temperature += 1
+	this.increaseTemperatureBy(1)
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
-	this.temperature -= 1
+	this.decreaseTemperatureBy(1)
 };
 
 Thermostat.prototype.turnOffPowerSaving = function() {
