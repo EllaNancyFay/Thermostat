@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	var thermostat = new Thermostat;
 	$(".temperature h1").text(thermostat.temperature);
+	$(".powerSaveOn").attr('checked', 'checked');
 
 	$(".increase_temperature").on('click', function() {
 		thermostat.increaseTemperature()
@@ -19,6 +20,7 @@ $(document).ready(function() {
 
 	$(".powerSaveOn").on('click', function() {
 		thermostat.turnOnPowerSaving()
+		$(".temperature h1").text(thermostat.temperature);
 	});
 
 	$(".powerSaveOff").on('click', function() {

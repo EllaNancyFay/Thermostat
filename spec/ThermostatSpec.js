@@ -85,7 +85,7 @@ describe('Thermostat', function() {
 				expect(thermostat.maximumTemp).toEqual(25)
 			});
 
-			it("if turned when the temp is already over 25, the max temp should be reset", function(){
+			it("if turned on when the temp is already over 25, the max temp should be reset", function(){
 				thermostat.turnOffPowerSaving()
 				thermostat.increaseTemperatureBy(8)
 				thermostat.turnOnPowerSaving()
