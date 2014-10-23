@@ -4,25 +4,28 @@
 </head>
 
 	<body> 
-			<section>
+		<section>
 			<aside class="temperature">
-			<h1 >Here will be the temperature</h1>
+				<h1 >Here will be the temperature</h1>
 			</aside>
-			<section >
+		<section >
 			<ul id="diaplay-buttons">
-			<li><a href="#" class="increase_temperature"> + </a></li>
-			<li><a href="#" class="decrease_temperature"> - </a></li>
-			<li><a href="#" class="reset"> reset </a></li>
+				<li><a href="#" class="increase_temperature"> + </a></li>
+				<li><a href="#" class="decrease_temperature"> - </a></li>
+				<li><a href="#" class="reset"> reset </a></li>
 			</ul>
-			</section>
+		</section>
 			<aside>
-			<p>Power saving mode:</p>
-			<input class="powerSaveOn" type="radio" name="powersave" value"on">On</input>
-			<input class="powerSaveOff" type="radio" name="powersave" value"off">Off</input>
+				<p>Power saving mode:</p>
+				<input class="powerSaveOn" type="radio" name="powersave" value"on">On</input>
+				<input class="powerSaveOff" type="radio" name="powersave" value"off">Off</input>
 			</aside>
-			</section>
-		<script src="jquery-2.1.1.min.js"> </script>
-		<script src="src/Thermostat.js"> </script>
-		<script src="src/thermostatView.js"> </script>
+		</section>
+		<section>
+			<p id="actualWeather">Actual weather</p>
+		</section>
+	<script src="jquery-2.1.1.min.js"> </script>
+	<script src="src/Thermostat.js"> </script>
+	<script src="src/thermostatView.js"> </script>
 	</body>
 </html>
