@@ -1,33 +1,32 @@
 <html>
-<head> 
-<title>Thermostat</title>
-</head>
-
-	<body> 
-		<section>
-			<aside class="temperature">
-			<h2>Your thermostat is set to</h2>
-				<h1 >Here will be the temperature</h1>
-			</aside>
-		<section >
-			<ul id="diaplay-buttons">
-				<li><a href="#" class="increase_temperature"> + </a></li>
-				<li><a href="#" class="decrease_temperature"> - </a></li>
-				<li><a href="#" class="reset"> reset </a></li>
-			</ul>
-		</section>
-			<aside>
-				<p>Power saving mode:</p>
-				<input class="powerSaveOn" type="radio" name="powersave" value"on">On</input>
-				<input class="powerSaveOff" type="radio" name="powersave" value"off">Off</input>
-			</aside>
-		</section>
-		<section>
-			<p>Actual temperature</p>
-			<p id="actualWeather"></p>
-		</section>
-	<script src="jquery-2.1.1.min.js"> </script>
-	<script src="src/Thermostat.js"> </script>
-	<script src="src/thermostatView.js"> </script>
-	</body>
+  <head> 
+    <title>Thermostat</title>
+  </head>
+  <body> 
+    <section>
+      <aside class="temperature">
+      <h2>Your thermostat is set to</h2>
+        <h1 >Here will be the temperature</h1>
+      </aside>
+    <section >
+      <ul id="diaplay-buttons">
+        <li><a href="#" class="increase_temperature"> + </a></li>
+        <li><a href="#" class="decrease_temperature"> - </a></li>
+        <li><a href="#" class="reset"> reset </a></li>
+      </ul>
+    </section>
+      <aside>
+        <p>Power saving mode:</p>
+        <input class="powerSaveOn" type="radio" name="powersave" value"on">On</input>
+        <input class="powerSaveOff" type="radio" name="powersave" value"off">Off</input>
+      </aside>
+    </section>
+    <section>
+      <p>Actual temperature</p>
+      <p id="actualWeather"></p>
+    </section>
+  <script src="jquery-2.1.1.min.js"> </script>
+  <script src="src/Thermostat.js"> </script>
+  <script src="src/thermostatView.js"> </script>
+  </body>
 </html>
