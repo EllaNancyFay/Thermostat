@@ -1,15 +1,15 @@
 Thermostat
 ==================
-###Creating a program to show Current temperature and local weather report in a static location (london).
+###Creating a program to set thermostat and show current temperature in a static location (London).
 
 ####Technologies Used:
 
   - Javascript
   - Jasmine
   - Weather API
-  - Html
-  - Css
-  - JQuery
+  - HTML
+  - CSS
+  - jQuery
 
 #####To do list:
 
